@@ -4,4 +4,11 @@ Game created by following this [Youtube](https://www.youtube.com/watch?v=XtQMytO
 
 ## Controls
 
-Press <kbd>Space</kbd> to fly up
+Press <kbd>Space</kbd> to flap
+
+## Built With
+- Unity
+- C#
+
+## Goal
+Learn Unity basics and 2D game mechanics.

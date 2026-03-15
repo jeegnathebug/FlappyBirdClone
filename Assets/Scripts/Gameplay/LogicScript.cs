@@ -1,6 +1,6 @@
+using Core;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LogicScript : MonoBehaviour
 {
@@ -28,7 +28,15 @@ public class LogicScript : MonoBehaviour
     /// </summary>
     public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneLoader.Load(GameScene.GameScene);
+    }
+
+    /// <summary>
+    /// Called by Canvas > Game Over Screen
+    /// </summary>
+    public void returnToMenu()
+    {
+        SceneLoader.Load(GameScene.MainMenuScene);
     }
 
     public bool isGameOver()

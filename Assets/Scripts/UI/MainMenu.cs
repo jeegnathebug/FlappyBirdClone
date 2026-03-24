@@ -1,15 +1,23 @@
 using Core;
+using Gameplay;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+namespace UI
 {
-    public void StartGame()
+    public class MainMenu : MonoBehaviour
     {
-        SceneLoader.Load(GameScene.GameScene);
-    }
+        private GameManager _gameManager;
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        public void StartGame()
+        {
+            _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+            SceneLoader.UnloadAsync(GameScene.MainMenuScene);
+            _gameManager.StartGame();
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

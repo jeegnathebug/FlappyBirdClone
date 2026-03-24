@@ -20,7 +20,7 @@ namespace Gameplay
 
         private void Update()
         {
-            if (_jumpAction.IsPressed())
+            if (_jumpAction.WasPressedThisFrame())
             {
                 rigidBody2D.linearVelocity = Vector2.up * flapStrength;
             }

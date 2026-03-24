@@ -28,7 +28,7 @@ namespace Gameplay
                 return;
             }
 
-            if (_jumpAction.IsPressed())
+            if (_jumpAction.WasPressedThisFrame())
             {
                 _waitTimer = 0;
                 gameOverButton.onClick.Invoke();

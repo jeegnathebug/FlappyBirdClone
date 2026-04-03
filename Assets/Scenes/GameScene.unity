@@ -636,6 +636,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 975113111046938051, guid: a392f2a10763e4646a408aa4b1ecf352, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1669534912792993009, guid: a392f2a10763e4646a408aa4b1ecf352, type: 3}
       propertyPath: m_Name
       value: CloudParticles
@@ -679,6 +683,10 @@ PrefabInstance:
     - target: {fileID: 1677330508057082146, guid: a392f2a10763e4646a408aa4b1ecf352, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534812156147594716, guid: a392f2a10763e4646a408aa4b1ecf352, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

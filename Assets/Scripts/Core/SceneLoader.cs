@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Core
 {
-    public class SceneLoader
+    public static class SceneLoader
     {
         public static void Load(GameScene scene)
         {

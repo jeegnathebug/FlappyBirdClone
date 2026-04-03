@@ -1290,12 +1290,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightCycle
   mainCamera: {fileID: 519420031}
-  dayColor: {r: 0.4, g: 0.7, b: 1, a: 1}
-  sunsetColor: {r: 1, g: 0.5, b: 0.2, a: 1}
-  goldenHourColor: {r: 0.7, g: 0.4, b: 0.5, a: 1}
-  duskColor: {r: 0.5, g: 0.2, b: 0.7, a: 1}
-  nightColor: {r: 0.05, g: 0.05, b: 0.2, a: 1}
-  cycleDuration: 60
+  skyGradient:
+    serializedVersion: 2
+    key0: {r: 0.37647063, g: 0.6666667, b: 0.9568628, a: 1}
+    key1: {r: 0.40000004, g: 0.7019608, b: 1, a: 1}
+    key2: {r: 0.9490197, g: 0.73333335, b: 0.43529415, a: 0}
+    key3: {r: 0.43529415, g: 0.3372549, b: 0.69803923, a: 0}
+    key4: {r: 0, g: 0.17092128, b: 0.33962262, a: 0}
+    key5: {r: 0.050980397, g: 0.050980397, b: 0.20000002, a: 0}
+    key6: {r: 0.009948692, g: 0.14751513, b: 0.31237563, a: 0}
+    key7: {r: 0.40000004, g: 0.7019608, b: 1, a: 0}
+    ctime0: 0
+    ctime1: 17629
+    ctime2: 24719
+    ctime3: 31618
+    ctime4: 42598
+    ctime5: 51850
+    ctime6: 61487
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  cycleDuration: 120
 --- !u!4 &1635383703
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ namespace Gameplay
         {
             _time += Time.unscaledDeltaTime;
 
-            float t = (_time % cycleDuration) / cycleDuration;
+            float t = _time % cycleDuration / cycleDuration;
 
             mainCamera.backgroundColor = skyGradient.Evaluate(t);
         }

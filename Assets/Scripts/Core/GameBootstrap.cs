@@ -13,7 +13,6 @@ namespace Core
         private void Start()
         {
             SceneLoader.Load(GameScene.MainMenuScene, LoadSceneMode.Additive);
-            Time.timeScale = 0;
         }
     }
 }

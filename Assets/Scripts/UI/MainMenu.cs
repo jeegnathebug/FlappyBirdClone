@@ -1,4 +1,4 @@
-using Gameplay;
+using System;
 using UnityEngine;
 using Utility;
 
@@ -6,17 +6,21 @@ namespace UI
 {
     public class MainMenu : MonoBehaviour
     {
-        private GameManager _gameManager;
+        public static event Action StartButtonPressed;
 
-        public void StartGame()
+        /// <summary>
+        /// Called by the Menu's Start button.
+        /// </summary>
+        public void OnStartButtonPressed()
         {
-            // Need to get it like this instead of assigning it in the Inspector because it's in a different scene
-            _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             SceneLoader.UnloadAsync(GameScene.MainMenuScene);
-            _gameManager.StartGame();
+            StartButtonPressed?.Invoke();
         }
 
-        public void QuitGame()
+        /// <summary>
+        /// Called by the Menu's Quit button.
+        /// </summary>
+        public void OnQuitButtonPressed()
         {
             Application.Quit();
         }

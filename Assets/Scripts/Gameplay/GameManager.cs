@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 using Utility;
 
@@ -13,7 +14,27 @@ namespace Gameplay
         [SerializeField] private Bird bird;
         [SerializeField] private PipeSpawner pipeSpawner;
 
-        public void StartGame()
+        private void OnEnable()
+        {
+            MainMenu.StartButtonPressed += StartGame;
+            GameOverMenu.RestartButtonPressed += RestartGame;
+            GameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
+        }
+
+        private void OnDisable()
+        {
+            MainMenu.StartButtonPressed -= StartGame;
+            GameOverMenu.RestartButtonPressed -= RestartGame;
+            GameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
+        }
+
+        private void Start()
+        {
+            Time.timeScale = 0;
+            gameOverScreen.SetActive(false);
+        }
+
+        private void StartGame()
         {
             Time.timeScale = 1;
             gameOverScreen.SetActive(false);
@@ -28,7 +49,7 @@ namespace Gameplay
         /// <summary>
         /// Called by GameScene > Canvas > Game Over Screen > RestartButton
         /// </summary>
-        public void RestartGame()
+        private void RestartGame()
         {
             scoreManager.ResetScore();
             bird.ResetBird();
@@ -40,7 +61,7 @@ namespace Gameplay
         /// <summary>
         /// Called by GameScene > Canvas > Game Over Screen > ReturnToMenuButton
         /// </summary>
-        public void ReturnToMenu()
+        private void ReloadGame()
         {
             SceneLoader.Load(GameScene.GameScene);
         }

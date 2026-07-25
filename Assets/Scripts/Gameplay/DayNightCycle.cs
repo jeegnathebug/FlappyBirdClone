@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Controls the sky gradient in the Game and Main Menu screens
+    /// </summary>
     public class DayNightCycle : MonoBehaviour
     {
-        public Camera mainCamera;
-
-        public Gradient skyGradient;
-
-        public float cycleDuration = 120f;
-
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private Gradient skyGradient;
+        [SerializeField] private float cycleDuration = 120f;
         private float _time;
 
         private void Update()

@@ -7,14 +7,14 @@ namespace Gameplay
     /// </summary>
     public class PipeMove : MonoBehaviour
     {
-        public float moveSpeed = 5;
+        [SerializeField] private float moveSpeed = 5;
         private const float DeadZone = -30;
 
         private void Update()
         {
             transform.position += moveSpeed * Time.deltaTime * Vector3.left;
 
-            // If Pipe moves out of view, destroy it
+            // When the Pipe moves out of view, destroy it
             if (transform.position.x < DeadZone)
             {
                 Destroy(gameObject);

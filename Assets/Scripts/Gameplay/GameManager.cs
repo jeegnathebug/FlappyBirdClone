@@ -1,14 +1,17 @@
-using Core;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// Game state actions. Used in Bird and MainMenu
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
-        public GameObject gameOverScreen;
-        public ScoreManager scoreManager;
-        public Bird bird;
-        public PipeSpawner pipeSpawner;
+        [SerializeField] private GameObject gameOverScreen;
+        [SerializeField] private ScoreManager scoreManager;
+        [SerializeField] private Bird bird;
+        [SerializeField] private PipeSpawner pipeSpawner;
 
         public void StartGame()
         {

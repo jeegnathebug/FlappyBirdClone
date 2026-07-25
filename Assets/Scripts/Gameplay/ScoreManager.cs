@@ -5,7 +5,7 @@ namespace Gameplay
 {
     public class ScoreManager : MonoBehaviour
     {
-        public TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI scoreText;
         private int _score;
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Gameplay
         }
 
         /// <summary>
-        /// Used in the GameManager script to reset score
+        /// Called by GameManager when restarting the game
         /// </summary>
         public void ResetScore()
         {

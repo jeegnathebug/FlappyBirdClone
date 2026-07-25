@@ -1,8 +1,11 @@
 using UnityEngine.Internal;
 using UnityEngine.SceneManagement;
 
-namespace Core
+namespace Utility
 {
+    /// <summary>
+    /// Wrapper around Unity's SceneManagement.SceneManager to make SceneManager easier to use with GameScene enum
+    /// </summary>
     public static class SceneLoader
     {
         public static void Load(GameScene scene)

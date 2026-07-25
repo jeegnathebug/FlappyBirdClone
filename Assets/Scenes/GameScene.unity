@@ -1479,6 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rigidBody2D: {fileID: 1710740536}
   flapStrength: 20
+  gameManager: {fileID: 862995201}
 --- !u!60 &1710740538
 PolygonCollider2D:
   m_ObjectHideFlags: 0

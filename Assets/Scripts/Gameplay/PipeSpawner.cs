@@ -4,9 +4,9 @@ namespace Gameplay
 {
     public class PipeSpawner : MonoBehaviour
     {
-        public GameObject pipe;
-        public float spawnRate = 2.5f;
-        public float heightOffset = 5;
+        [SerializeField] private GameObject pipe;
+        [SerializeField] private float spawnRate = 2.5f;
+        [SerializeField] private float heightOffset = 5;
         private float _timer;
 
         private void Start()
@@ -35,6 +35,9 @@ namespace Gameplay
             Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation, transform);
         }
 
+        /// <summary>
+        /// Called by GameManager when restarting the game
+        /// </summary>
         public void ResetPipes()
         {
             _timer = spawnRate;

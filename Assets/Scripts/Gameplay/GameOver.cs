@@ -9,7 +9,7 @@ namespace Gameplay
     /// </summary>
     public class GameOver : MonoBehaviour
     {
-        public Button gameOverButton;
+        [SerializeField] private Button gameOverButton;
         private InputAction _jumpAction;
         private const float ButtonEnabledDelayTime = .5f;
         private float _waitTimer;

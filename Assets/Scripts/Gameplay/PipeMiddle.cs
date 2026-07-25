@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Gameplay
 {
     /// <summary>
-    /// Within the Pipe prefab. Used as a Trigger for scoring points.
+    /// Within the Pipe prefab. Used as a Trigger for scoring points. Each pipe has a separate PipeMiddle script.
     /// </summary>
     public class PipeMiddle : MonoBehaviour
     {
@@ -15,6 +15,9 @@ namespace Gameplay
             _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
         }
 
+        /// <summary>
+        /// This method is triggered when the bird enters the middle of the pipe
+        /// </summary>
         private void OnTriggerEnter2D(Collider2D collision)
         {
             // Fail-safe to prevent scoring multiple times at one pipe

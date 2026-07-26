@@ -24,7 +24,7 @@ namespace Core
             MainMenu.StartButtonPressed += StartGame;
             gameOverMenu.RestartButtonPressed += RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
-            bird.BirdCollision += EndGame;
+            bird.Collision += EndGame;
         }
 
         private void OnDisable()
@@ -32,7 +32,7 @@ namespace Core
             MainMenu.StartButtonPressed -= StartGame;
             gameOverMenu.RestartButtonPressed -= RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
-            bird.BirdCollision -= EndGame;
+            bird.Collision -= EndGame;
         }
 
         #endregion

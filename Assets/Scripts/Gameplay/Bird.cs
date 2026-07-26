@@ -9,7 +9,7 @@ namespace Gameplay
     {
         [SerializeField] private float flapStrength;
 
-        public event Action BirdCollision;
+        public event Action Collision;
 
         private InputAction _jumpAction;
         private Rigidbody2D _rigidBody2D;
@@ -54,7 +54,7 @@ namespace Gameplay
 
         private void OnCollisionEnter2D()
         {
-            BirdCollision?.Invoke();
+            Collision?.Invoke();
         }
 
         #endregion

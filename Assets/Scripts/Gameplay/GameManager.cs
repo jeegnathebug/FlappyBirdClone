@@ -9,41 +9,46 @@ namespace Gameplay
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private GameObject gameOverScreen;
+        [SerializeField] private GameOverMenu gameOverMenu;
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private Bird bird;
         [SerializeField] private PipeSpawner pipeSpawner;
 
+        #region Unity Lifecycle
         private void OnEnable()
         {
             MainMenu.StartButtonPressed += StartGame;
-            GameOverMenu.RestartButtonPressed += RestartGame;
-            GameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
+            gameOverMenu.RestartButtonPressed += RestartGame;
+            gameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
         }
 
         private void OnDisable()
         {
             MainMenu.StartButtonPressed -= StartGame;
-            GameOverMenu.RestartButtonPressed -= RestartGame;
-            GameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
+            gameOverMenu.RestartButtonPressed -= RestartGame;
+            gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
         }
 
         private void Start()
         {
-            Time.timeScale = 0;
-            gameOverScreen.SetActive(false);
+            gameOverMenu.Hide();
+            bird.Pause();
+            pipeSpawner.Pause();
         }
+        #endregion
 
         private void StartGame()
         {
-            Time.timeScale = 1;
-            gameOverScreen.SetActive(false);
+            gameOverMenu.Hide();
+            bird.Resume();
+            pipeSpawner.Resume();
         }
 
         public void GameOver()
         {
-            Time.timeScale = 0;
-            gameOverScreen.SetActive(true);
+            gameOverMenu.Show();
+            bird.Pause();
+            pipeSpawner.Pause();
         }
 
         /// <summary>

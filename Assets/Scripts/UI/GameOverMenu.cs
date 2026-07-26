@@ -6,8 +6,8 @@ namespace UI
 {
     public class GameOverMenu : MonoBehaviour
     {
-        public static event Action RestartButtonPressed;
-        public static event Action ReturnToMenuButtonPressed;
+        public event Action RestartButtonPressed;
+        public event Action ReturnToMenuButtonPressed;
 
         // Keyboard action
         private InputAction _jumpAction;
@@ -32,6 +32,16 @@ namespace UI
 
             _waitTimer = 0;
             OnRestartButtonPressed();
+        }
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
 
         /// <summary>

@@ -167,10 +167,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 18750403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e236701e14eef4cb109baeb67d6de5, type: 3}
+  m_Script: {fileID: 11500000, guid: beeaea78b406a63498f2eb305fcf6f3e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  gameOverButton: {fileID: 995913171}
+  m_EditorClassIdentifier: Assembly-CSharp::UI.GameOverMenu
 --- !u!1 &71243129
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +319,7 @@ GameObject:
   - component: {fileID: 166778329}
   - component: {fileID: 166778328}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,7 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4299d63cb66c46288e4da271d876b0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.GameManager
-  gameOverScreen: {fileID: 18750403}
+  gameOverMenu: {fileID: 18750405}
   scoreManager: {fileID: 1506980901}
   bird: {fileID: 1710740537}
   pipeSpawner: {fileID: 383782942}
@@ -1040,7 +1039,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115954457}
+      - m_Target: {fileID: 18750405}
         m_TargetAssemblyTypeName: UI.GameOverMenu, Assembly-CSharp
         m_MethodName: OnRestartButtonPressed
         m_Mode: 1
@@ -1173,7 +1172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115954457}
+      - m_Target: {fileID: 18750405}
         m_TargetAssemblyTypeName: UI.GameOverMenu, Assembly-CSharp
         m_MethodName: OnReturnToMenuButtonPressed
         m_Mode: 1
@@ -1309,12 +1308,12 @@ MonoBehaviour:
     key6: {r: 0.009948692, g: 0.14751513, b: 0.31237563, a: 0}
     key7: {r: 0.40000004, g: 0.7019608, b: 1, a: 0}
     ctime0: 0
-    ctime1: 17629
-    ctime2: 24719
-    ctime3: 31618
-    ctime4: 42598
-    ctime5: 51850
-    ctime6: 61487
+    ctime1: 18779
+    ctime2: 24144
+    ctime3: 30085
+    ctime4: 42924
+    ctime5: 50588
+    ctime6: 61703
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -1652,7 +1651,7 @@ GameObject:
   - component: {fileID: 2088128206}
   - component: {fileID: 2088128205}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1777,57 +1776,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088128203}
   m_CullTransparentMesh: 1
---- !u!1 &2115954456
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2115954458}
-  - component: {fileID: 2115954457}
-  m_Layer: 0
-  m_Name: GameOverMenu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2115954457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115954456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beeaea78b406a63498f2eb305fcf6f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!4 &2115954458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115954456}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.24407, y: -2.34672, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 423526976}
   - {fileID: 862995200}
-  - {fileID: 2115954458}
   - {fileID: 1506980902}
   - {fileID: 1635383703}
   - {fileID: 519420032}

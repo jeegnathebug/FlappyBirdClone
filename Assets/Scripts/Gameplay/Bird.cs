@@ -1,3 +1,4 @@
+using System;
 using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,9 +8,11 @@ namespace Gameplay
     public class Bird : MonoBehaviour, IPausable, IStoppable, IResetable
     {
         [SerializeField] private float flapStrength;
-        [SerializeField] private Rigidbody2D rigidBody2D;
-        [SerializeField] private GameManager gameManager;
+
+        public event Action BirdCollision;
+
         private InputAction _jumpAction;
+        private Rigidbody2D _rigidBody2D;
         private readonly Vector3 _startPosition = Vector3.zero;
         private bool _isRunning = false;
 
@@ -18,6 +21,7 @@ namespace Gameplay
         private void Awake()
         {
             _jumpAction = InputSystem.actions.FindAction("Jump");
+            _rigidBody2D = GetComponent<Rigidbody2D>();
         }
 
         private void OnEnable()
@@ -44,13 +48,13 @@ namespace Gameplay
 
             if (_jumpAction.WasPressedThisFrame())
             {
-                rigidBody2D.linearVelocity = Vector2.up * flapStrength;
+                _rigidBody2D.linearVelocity = Vector2.up * flapStrength;
             }
         }
 
         private void OnCollisionEnter2D()
         {
-            gameManager.EndGame();
+            BirdCollision?.Invoke();
         }
 
         #endregion
@@ -77,28 +81,28 @@ namespace Gameplay
         public void Resume()
         {
             _isRunning = true;
-            rigidBody2D.gravityScale = 5;
+            _rigidBody2D.gravityScale = 5;
         }
 
         public void Pause()
         {
             _isRunning = false;
-            rigidBody2D.gravityScale = 0;
+            _rigidBody2D.gravityScale = 0;
         }
 
         public void Stop()
         {
             _isRunning = false;
-            rigidBody2D.gravityScale = 0;
-            rigidBody2D.linearVelocity = Vector2.zero;
+            _rigidBody2D.gravityScale = 0;
+            _rigidBody2D.linearVelocity = Vector2.zero;
         }
 
         public void Reset()
         {
             _isRunning = false;
             transform.position = _startPosition;
-            rigidBody2D.gravityScale = 0;
-            rigidBody2D.linearVelocity = Vector2.zero;
+            _rigidBody2D.gravityScale = 0;
+            _rigidBody2D.linearVelocity = Vector2.zero;
         }
     }
 }

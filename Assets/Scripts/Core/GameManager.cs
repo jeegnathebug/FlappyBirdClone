@@ -1,4 +1,5 @@
 using System;
+using Gameplay;
 using UI;
 using UnityEngine;
 using Utility;
@@ -11,6 +12,8 @@ namespace Core
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private GameOverMenu gameOverMenu;
+        [SerializeField] private Bird bird;
+
         public static event Action<GameState> StateChanged;
         public static GameState State { get; private set; } = GameState.Stopped;
 
@@ -21,6 +24,7 @@ namespace Core
             MainMenu.StartButtonPressed += StartGame;
             gameOverMenu.RestartButtonPressed += RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
+            bird.BirdCollision += EndGame;
         }
 
         private void OnDisable()
@@ -28,6 +32,7 @@ namespace Core
             MainMenu.StartButtonPressed -= StartGame;
             gameOverMenu.RestartButtonPressed -= RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
+            bird.BirdCollision -= EndGame;
         }
 
         #endregion
@@ -49,7 +54,7 @@ namespace Core
             SetState(GameState.Started);
         }
 
-        public void EndGame()
+        private void EndGame()
         {
             gameOverMenu.Show();
             SetState(GameState.Stopped);

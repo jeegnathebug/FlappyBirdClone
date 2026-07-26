@@ -1,4 +1,4 @@
-namespace Utility
+namespace Core
 {
     /**
      * Enum defining the scenes available in the game

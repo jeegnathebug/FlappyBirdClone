@@ -12,7 +12,6 @@ namespace Core
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private GameOverMenu gameOverMenu;
-        [SerializeField] private Bird bird;
 
         public static event Action<GameState> StateChanged;
         public static GameState State { get; private set; } = GameState.Stopped;
@@ -24,7 +23,6 @@ namespace Core
             MainMenu.StartButtonPressed += StartGame;
             gameOverMenu.RestartButtonPressed += RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
-            bird.Collision += EndGame;
         }
 
         private void OnDisable()
@@ -32,7 +30,6 @@ namespace Core
             MainMenu.StartButtonPressed -= StartGame;
             gameOverMenu.RestartButtonPressed -= RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
-            bird.Collision -= EndGame;
         }
 
         #endregion
@@ -54,7 +51,7 @@ namespace Core
             SetState(GameState.Started);
         }
 
-        private void EndGame()
+        public void EndGame()
         {
             gameOverMenu.Show();
             SetState(GameState.Stopped);

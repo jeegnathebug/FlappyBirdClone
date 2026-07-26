@@ -1,4 +1,3 @@
-using System;
 using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,8 +7,7 @@ namespace Gameplay
     public class Bird : MonoBehaviour, IPausable, IStoppable, IResetable
     {
         [SerializeField] private float flapStrength;
-
-        public event Action Collision;
+        [SerializeField] private GameManager gameManager;
 
         private InputAction _jumpAction;
         private Rigidbody2D _rigidBody2D;
@@ -54,7 +52,7 @@ namespace Gameplay
 
         private void OnCollisionEnter2D()
         {
-            Collision?.Invoke();
+            gameManager.EndGame();
         }
 
         #endregion

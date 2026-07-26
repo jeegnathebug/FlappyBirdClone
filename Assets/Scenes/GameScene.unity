@@ -816,7 +816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.GameManager
   gameOverMenu: {fileID: 18750405}
-  bird: {fileID: 1710740537}
 --- !u!1 &870759659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   flapStrength: 20
+  gameManager: {fileID: 862995201}
 --- !u!60 &1710740538
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay
 {
-    public class Bird : MonoBehaviour, IPausable, IStoppable, IResetable
+    public class Bird : GameStateSubscriber
     {
         [SerializeField] private float flapStrength;
         [SerializeField] private GameManager gameManager;
@@ -20,16 +20,6 @@ namespace Gameplay
         {
             _jumpAction = InputSystem.actions.FindAction("Jump");
             _rigidBody2D = GetComponent<Rigidbody2D>();
-        }
-
-        private void OnEnable()
-        {
-            GameManager.StateChanged += OnStateChanged;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.StateChanged -= OnStateChanged;
         }
 
         private void Start()
@@ -57,45 +47,26 @@ namespace Gameplay
 
         #endregion
 
-        private void OnStateChanged(GameState state)
-        {
-            switch (state)
-            {
-                case GameState.Started:
-                    Resume();
-                    break;
-                case GameState.Paused:
-                    Pause();
-                    break;
-                case GameState.Stopped:
-                    Stop();
-                    break;
-                case GameState.Restarted:
-                    Reset();
-                    break;
-            }
-        }
-
-        public void Resume()
+        protected override void Resume()
         {
             _isRunning = true;
             _rigidBody2D.gravityScale = 5;
         }
 
-        public void Pause()
+        protected override void Pause()
         {
             _isRunning = false;
             _rigidBody2D.gravityScale = 0;
         }
 
-        public void Stop()
+        protected override void Stop()
         {
             _isRunning = false;
             _rigidBody2D.gravityScale = 0;
             _rigidBody2D.linearVelocity = Vector2.zero;
         }
 
-        public void Reset()
+        protected override void Reset()
         {
             _isRunning = false;
             transform.position = _startPosition;

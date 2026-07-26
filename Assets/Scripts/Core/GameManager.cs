@@ -50,6 +50,9 @@ namespace Core
             SetState(GameState.Started);
         }
 
+        /// <summary>
+        /// Used in the Bird when it collides and dies
+        /// </summary>
         public void EndGame()
         {
             gameOverMenu.Show();

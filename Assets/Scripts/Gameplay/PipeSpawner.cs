@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PipeSpawner : MonoBehaviour, IPausable, IStoppable, IResetable
+    public class PipeSpawner : GameStateSubscriber
     {
         [SerializeField] private GameObject pipe;
         [SerializeField] private float spawnRate = 2.5f;
@@ -12,16 +12,6 @@ namespace Gameplay
         private bool _isRunning = false;
 
         #region Unity Lifecycle
-
-        private void OnEnable()
-        {
-            GameManager.StateChanged += OnStateChanged;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.StateChanged -= OnStateChanged;
-        }
 
         private void Start()
         {
@@ -57,41 +47,22 @@ namespace Gameplay
                 transform.rotation, transform);
         }
 
-        private void OnStateChanged(GameState state)
-        {
-            switch (state)
-            {
-                case GameState.Started:
-                    Resume();
-                    break;
-                case GameState.Paused:
-                    Pause();
-                    break;
-                case GameState.Stopped:
-                    Stop();
-                    break;
-                case GameState.Restarted:
-                    Reset();
-                    break;
-            }
-        }
-
-        public void Resume()
+        protected override void Resume()
         {
             _isRunning = true;
         }
 
-        public void Pause()
+        protected override void Pause()
         {
             _isRunning = false;
         }
 
-        public void Stop()
+        protected override void Stop()
         {
             _isRunning = false;
         }
 
-        public void Reset()
+        protected override void Reset()
         {
             _isRunning = false;
             _timer = spawnRate;

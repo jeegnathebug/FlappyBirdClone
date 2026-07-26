@@ -6,23 +6,13 @@ namespace Gameplay
     /// <summary>
     /// Within the Pipe prefab. Used to move the pipe object along.
     /// </summary>
-    public class Pipe : MonoBehaviour, IPausable, IStoppable, IResetable
+    public class Pipe : GameStateSubscriber
     {
         [SerializeField] private float moveSpeed = 5;
         private const float DeadZone = -30;
         private bool _isRunning = false;
 
         #region Unity Lifecycle
-
-        private void OnEnable()
-        {
-            GameManager.StateChanged += OnStateChanged;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.StateChanged -= OnStateChanged;
-        }
 
         private void Start()
         {
@@ -47,41 +37,22 @@ namespace Gameplay
 
         #endregion
 
-        private void OnStateChanged(GameState state)
-        {
-            switch (state)
-            {
-                case GameState.Started:
-                    Resume();
-                    break;
-                case GameState.Paused:
-                    Pause();
-                    break;
-                case GameState.Stopped:
-                    Stop();
-                    break;
-                case GameState.Restarted:
-                    Reset();
-                    break;
-            }
-        }
-
-        public void Resume()
+        protected override void Resume()
         {
             _isRunning = true;
         }
 
-        public void Pause()
+        protected override void Pause()
         {
             _isRunning = false;
         }
 
-        public void Stop()
+        protected override void Stop()
         {
             _isRunning = false;
         }
 
-        public void Reset()
+        protected override void Reset()
         {
             Destroy(gameObject);
         }

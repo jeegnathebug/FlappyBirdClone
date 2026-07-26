@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class ScoreManager : MonoBehaviour, IResetable
+    public class ScoreManager : GameStateSubscriber
     {
         [SerializeField] private TextMeshProUGUI scoreText;
         private int _score = 0;
@@ -16,27 +16,7 @@ namespace Gameplay
             scoreText.text = _score.ToString();
         }
 
-        private void OnEnable()
-        {
-            GameManager.StateChanged += OnStateChanged;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.StateChanged -= OnStateChanged;
-        }
-
         #endregion
-
-        private void OnStateChanged(GameState state)
-        {
-            switch (state)
-            {
-                case GameState.Restarted:
-                    Reset();
-                    break;
-            }
-        }
 
         /// <summary>
         /// Used in the PipeMiddle script to manage score
@@ -47,7 +27,7 @@ namespace Gameplay
             scoreText.text = _score.ToString();
         }
 
-        public void Reset()
+        protected override void Reset()
         {
             _score = 0;
             scoreText.text = _score.ToString();

@@ -7,21 +7,36 @@ namespace Gameplay
     public class ScoreManager : MonoBehaviour, IResetable
     {
         [SerializeField] private TextMeshProUGUI scoreText;
-        private int _score;
+        private int _score = 0;
 
         #region Unity Lifecycle
 
+        private void Awake()
+        {
+            scoreText.text = _score.ToString();
+        }
+
         private void OnEnable()
         {
-            GameManager.GameRestarted += Reset;
+            GameManager.StateChanged += OnStateChanged;
         }
 
         private void OnDisable()
         {
-            GameManager.GameRestarted -= Reset;
+            GameManager.StateChanged -= OnStateChanged;
         }
 
         #endregion
+
+        private void OnStateChanged(GameState state)
+        {
+            switch (state)
+            {
+                case GameState.Restarted:
+                    Reset();
+                    break;
+            }
+        }
 
         /// <summary>
         /// Used in the PipeMiddle script to manage score

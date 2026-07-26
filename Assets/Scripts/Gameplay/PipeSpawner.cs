@@ -3,28 +3,24 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PipeSpawner : MonoBehaviour, IPausable, IResetable
+    public class PipeSpawner : MonoBehaviour, IPausable, IStoppable, IResetable
     {
         [SerializeField] private GameObject pipe;
         [SerializeField] private float spawnRate = 2.5f;
         [SerializeField] private float heightOffset = 5;
         private float _timer;
-        private bool _isRunning;
+        private bool _isRunning = false;
 
         #region Unity Lifecycle
 
         private void OnEnable()
         {
-            GameManager.GameStarted += Resume;
-            GameManager.GameStopped += Pause;
-            GameManager.GameRestarted += Reset;
+            GameManager.StateChanged += OnStateChanged;
         }
 
         private void OnDisable()
         {
-            GameManager.GameStarted -= Resume;
-            GameManager.GameStopped -= Pause;
-            GameManager.GameRestarted -= Reset;
+            GameManager.StateChanged -= OnStateChanged;
         }
 
         private void Start()
@@ -61,6 +57,25 @@ namespace Gameplay
                 transform.rotation, transform);
         }
 
+        private void OnStateChanged(GameState state)
+        {
+            switch (state)
+            {
+                case GameState.Started:
+                    Resume();
+                    break;
+                case GameState.Paused:
+                    Pause();
+                    break;
+                case GameState.Stopped:
+                    Stop();
+                    break;
+                case GameState.Restarted:
+                    Reset();
+                    break;
+            }
+        }
+
         public void Resume()
         {
             _isRunning = true;
@@ -71,8 +86,14 @@ namespace Gameplay
             _isRunning = false;
         }
 
+        public void Stop()
+        {
+            _isRunning = false;
+        }
+
         public void Reset()
         {
+            _isRunning = false;
             _timer = spawnRate;
         }
     }

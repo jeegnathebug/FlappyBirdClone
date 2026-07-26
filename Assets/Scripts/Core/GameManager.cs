@@ -1,5 +1,4 @@
 using System;
-using Gameplay;
 using UI;
 using UnityEngine;
 using Utility;
@@ -7,18 +6,13 @@ using Utility;
 namespace Core
 {
     /// <summary>
-    /// Game state actions. Used in Bird and MainMenu
+    /// Game state actions
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        public static event Action GameStarted;
-        public static event Action GameStopped;
-        public static event Action GameRestarted;
-
         [SerializeField] private GameOverMenu gameOverMenu;
-        [SerializeField] private ScoreManager scoreManager;
-        [SerializeField] private Bird bird;
-        [SerializeField] private PipeSpawner pipeSpawner;
+        public static event Action<GameState> StateChanged;
+        public static GameState State { get; private set; } = GameState.Stopped;
 
         #region Unity Lifecycle
 
@@ -38,22 +32,34 @@ namespace Core
 
         #endregion
 
+        private static void SetState(GameState state)
+        {
+            if (State == state)
+            {
+                return;
+            }
+
+            State = state;
+            StateChanged?.Invoke(state);
+        }
+
         private void StartGame()
         {
             gameOverMenu.Hide();
-            GameStarted?.Invoke();
+            SetState(GameState.Started);
         }
 
         public void EndGame()
         {
             gameOverMenu.Show();
-            GameStopped?.Invoke();
+            SetState(GameState.Stopped);
         }
 
         private void RestartGame()
         {
-            GameRestarted?.Invoke();
-            StartGame();
+            gameOverMenu.Hide();
+            SetState(GameState.Restarted);
+            SetState(GameState.Started);
         }
 
         private void ReloadGame()

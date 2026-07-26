@@ -3,10 +3,22 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class ScoreManager : MonoBehaviour
+    public class ScoreManager : MonoBehaviour, IResetable
     {
         [SerializeField] private TextMeshProUGUI scoreText;
         private int _score;
+
+        #region Unity Lifecycle
+        private void OnEnable()
+        {
+            GameManager.GameRestarted += Reset;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.GameRestarted -= Reset;
+        }
+        #endregion
 
         /// <summary>
         /// Used in the PipeMiddle script to manage score
@@ -17,10 +29,7 @@ namespace Gameplay
             scoreText.text = _score.ToString();
         }
 
-        /// <summary>
-        /// Called by GameManager when restarting the game
-        /// </summary>
-        public void ResetScore()
+        public void Reset()
         {
             _score = 0;
             scoreText.text = _score.ToString();

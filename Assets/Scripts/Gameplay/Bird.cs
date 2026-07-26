@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay
 {
-    public class Bird : MonoBehaviour, IPausable
+    public class Bird : MonoBehaviour, IPausable, IResetable
     {
         [SerializeField] private float flapStrength;
         [SerializeField] private Rigidbody2D rigidBody2D;
@@ -13,6 +13,20 @@ namespace Gameplay
         private bool _isRunning;
 
         #region Unity Lifecycle
+        private void OnEnable()
+        {
+            GameManager.GameStarted += Resume;
+            GameManager.GameStopped += Pause;
+            GameManager.GameRestarted += Reset;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.GameStarted -= Resume;
+            GameManager.GameStopped -= Pause;
+            GameManager.GameRestarted -= Reset;
+        }
+
         private void Start()
         {
             _jumpAction = InputSystem.actions.FindAction("Jump");
@@ -36,7 +50,7 @@ namespace Gameplay
 
         private void OnCollisionEnter2D()
         {
-            gameManager.GameOver();
+            gameManager.EndGame();
         }
         #endregion
 
@@ -53,12 +67,10 @@ namespace Gameplay
             rigidBody2D.linearVelocity = Vector2.zero;
         }
 
-        /// <summary>
-        /// Called by GameManager when restarting the game
-        /// </summary>
-        public void ResetBird()
+        public void Reset()
         {
             transform.position = _startPosition;
+            rigidBody2D.gravityScale = 0;
             rigidBody2D.linearVelocity = Vector2.zero;
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using UI;
 using UnityEngine;
 using Utility;
@@ -9,6 +10,10 @@ namespace Gameplay
     /// </summary>
     public class GameManager : MonoBehaviour
     {
+        public static event Action GameStarted;
+        public static event Action GameStopped;
+        public static event Action GameRestarted;
+
         [SerializeField] private GameOverMenu gameOverMenu;
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private Bird bird;
@@ -28,44 +33,26 @@ namespace Gameplay
             gameOverMenu.RestartButtonPressed -= RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
         }
-
-        private void Start()
-        {
-            gameOverMenu.Hide();
-            bird.Pause();
-            pipeSpawner.Pause();
-        }
         #endregion
 
         private void StartGame()
         {
             gameOverMenu.Hide();
-            bird.Resume();
-            pipeSpawner.Resume();
+            GameStarted?.Invoke();
         }
 
-        public void GameOver()
+        public void EndGame()
         {
             gameOverMenu.Show();
-            bird.Pause();
-            pipeSpawner.Pause();
+            GameStopped?.Invoke();
         }
 
-        /// <summary>
-        /// Called by GameScene > Canvas > Game Over Screen > RestartButton
-        /// </summary>
         private void RestartGame()
         {
-            scoreManager.ResetScore();
-            bird.ResetBird();
-            pipeSpawner.ResetPipes();
-
+            GameRestarted?.Invoke();
             StartGame();
         }
 
-        /// <summary>
-        /// Called by GameScene > Canvas > Game Over Screen > ReturnToMenuButton
-        /// </summary>
         private void ReloadGame()
         {
             SceneLoader.Load(GameScene.GameScene);

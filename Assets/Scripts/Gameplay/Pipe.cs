@@ -5,13 +5,32 @@ namespace Gameplay
     /// <summary>
     /// Within the Pipe prefab. Used to move the pipe object along.
     /// </summary>
-    public class PipeMove : MonoBehaviour, IPausable
+    public class Pipe : MonoBehaviour, IPausable, IResetable
     {
         [SerializeField] private float moveSpeed = 5;
         private const float DeadZone = -30;
         private bool _isRunning;
 
         #region Unity Lifecycle
+        private void OnEnable()
+        {
+            GameManager.GameStarted += Resume;
+            GameManager.GameStopped += Pause;
+            GameManager.GameRestarted += Reset;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.GameStarted -= Resume;
+            GameManager.GameStopped -= Pause;
+            GameManager.GameRestarted -= Reset;
+        }
+
+        private void Start()
+        {
+            _isRunning = true;
+        }
+
         private void Update()
         {
             if (!_isRunning)
@@ -39,5 +58,9 @@ namespace Gameplay
             _isRunning = false;
         }
 
+        public void Reset()
+        {
+            Destroy(gameObject);
+        }
     }
 }

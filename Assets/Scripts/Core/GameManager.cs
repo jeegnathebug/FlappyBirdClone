@@ -1,9 +1,10 @@
 using System;
+using Gameplay;
 using UI;
 using UnityEngine;
 using Utility;
 
-namespace Gameplay
+namespace Core
 {
     /// <summary>
     /// Game state actions. Used in Bird and MainMenu
@@ -20,6 +21,7 @@ namespace Gameplay
         [SerializeField] private PipeSpawner pipeSpawner;
 
         #region Unity Lifecycle
+
         private void OnEnable()
         {
             MainMenu.StartButtonPressed += StartGame;
@@ -33,6 +35,7 @@ namespace Gameplay
             gameOverMenu.RestartButtonPressed -= RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
         }
+
         #endregion
 
         private void StartGame()

@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Gameplay
@@ -12,6 +13,7 @@ namespace Gameplay
         private bool _isRunning;
 
         #region Unity Lifecycle
+
         private void OnEnable()
         {
             GameManager.GameStarted += Resume;
@@ -46,6 +48,7 @@ namespace Gameplay
                 Destroy(gameObject);
             }
         }
+
         #endregion
 
         public void Resume()

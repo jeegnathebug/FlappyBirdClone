@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Gameplay
@@ -11,6 +12,7 @@ namespace Gameplay
         private bool _isRunning;
 
         #region Unity Lifecycle
+
         private void OnEnable()
         {
             GameManager.GameStarted += Resume;
@@ -47,6 +49,7 @@ namespace Gameplay
                 _timer = 0;
             }
         }
+
         #endregion
 
         private void SpawnPipe()
@@ -54,7 +57,8 @@ namespace Gameplay
             var highestPoint = transform.position.y + heightOffset;
             var lowestPoint = transform.position.y - heightOffset;
 
-            Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation, transform);
+            Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
+                transform.rotation, transform);
         }
 
         public void Resume()

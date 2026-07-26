@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ namespace Gameplay
         private bool _isRunning;
 
         #region Unity Lifecycle
+
         private void OnEnable()
         {
             GameManager.GameStarted += Resume;
@@ -30,7 +32,7 @@ namespace Gameplay
         private void Start()
         {
             _jumpAction = InputSystem.actions.FindAction("Jump");
-            _startPosition =  transform.position;
+            _startPosition = transform.position;
             rigidBody2D.linearVelocity = Vector2.zero;
             rigidBody2D.gravityScale = 0;
         }
@@ -52,6 +54,7 @@ namespace Gameplay
         {
             gameManager.EndGame();
         }
+
         #endregion
 
         public void Resume()

@@ -1,3 +1,4 @@
+using Core;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Gameplay
         private int _score;
 
         #region Unity Lifecycle
+
         private void OnEnable()
         {
             GameManager.GameRestarted += Reset;
@@ -18,6 +20,7 @@ namespace Gameplay
         {
             GameManager.GameRestarted -= Reset;
         }
+
         #endregion
 
         /// <summary>

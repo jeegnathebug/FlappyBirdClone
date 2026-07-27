@@ -1,16 +1,12 @@
 using Core;
+using UnityEngine;
 
-namespace Gameplay
+namespace Utility
 {
-    /// <summary>
-    /// Within the Pipe prefab. Used to move the pipe object along.
-    /// </summary>
-    public class Pipe : GameStateSubscriber
+    public class Scroller : GameStateSubscriber
     {
-        private const float DeadZone = -30;
+        [SerializeField] private float speed;
         private bool _isRunning = false;
-
-        #region Unity Lifecycle
 
         private void Start()
         {
@@ -24,14 +20,8 @@ namespace Gameplay
                 return;
             }
 
-            // When the Pipe moves out of view, destroy it
-            if (transform.position.x < DeadZone)
-            {
-                Destroy(gameObject);
-            }
+            transform.position += speed * Time.deltaTime * Vector3.left;
         }
-
-        #endregion
 
         protected override void Resume()
         {
@@ -46,11 +36,6 @@ namespace Gameplay
         protected override void Stop()
         {
             _isRunning = false;
-        }
-
-        protected override void Reset()
-        {
-            Destroy(gameObject);
         }
     }
 }

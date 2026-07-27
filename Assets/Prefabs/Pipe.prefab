@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4711464196842825307}
   - component: {fileID: 6329553142476684468}
+  - component: {fileID: 1844156220086026475}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -47,7 +48,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f414e17b8b1ee447988bd61a184000e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 5
+  speed: 5
+--- !u!114 &1844156220086026475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515558196945867280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef520feebbd542c98a5e6f841909e0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Scroller
+  speed: 5
 --- !u!1 &4177881172508536382
 GameObject:
   m_ObjectHideFlags: 0

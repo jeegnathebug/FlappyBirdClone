@@ -7,7 +7,8 @@ namespace Gameplay
     {
         [SerializeField] private GameObject pipe;
         [SerializeField] private float spawnRate = 2.5f;
-        [SerializeField] private float heightOffset = 5;
+        private const float TopOffset = 5;
+        private const float BottomOffset = 1;
         private float _timer;
         private bool _isRunning = false;
 
@@ -40,8 +41,8 @@ namespace Gameplay
 
         private void SpawnPipe()
         {
-            var highestPoint = transform.position.y + heightOffset;
-            var lowestPoint = transform.position.y - heightOffset;
+            var highestPoint = transform.position.y + TopOffset;
+            var lowestPoint = transform.position.y - BottomOffset;
 
             Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
                 transform.rotation, transform);

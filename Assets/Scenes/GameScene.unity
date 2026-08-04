@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 107466195}
   - component: {fileID: 107466194}
   - component: {fileID: 107466193}
+  - component: {fileID: 107466196}
   m_Layer: 0
   m_Name: City1
   m_TagString: Untagged
@@ -462,6 +463,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &107466196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107466191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &166778326
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +625,7 @@ GameObject:
   - component: {fileID: 222882090}
   - component: {fileID: 222882089}
   - component: {fileID: 222882088}
+  - component: {fileID: 222882092}
   m_Layer: 0
   m_Name: Ground2
   m_TagString: Untagged
@@ -768,6 +782,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &222882092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222882086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &383782941
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +932,7 @@ GameObject:
   - component: {fileID: 451452798}
   - component: {fileID: 451452797}
   - component: {fileID: 451452796}
+  - component: {fileID: 451452799}
   m_Layer: 0
   m_Name: City2
   m_TagString: Untagged
@@ -1016,6 +1043,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &451452799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451452794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1160,7 @@ GameObject:
   - component: {fileID: 533270022}
   - component: {fileID: 533270025}
   - component: {fileID: 533270026}
+  - component: {fileID: 533270027}
   m_Layer: 0
   m_Name: Ground1
   m_TagString: Untagged
@@ -1277,6 +1317,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98727deeb85b4c2c8c145a8bf21db71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.GroundLooper
+--- !u!114 &533270027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533270021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1001 &549390030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1354,6 +1406,7 @@ GameObject:
   - component: {fileID: 595794487}
   - component: {fileID: 595794486}
   - component: {fileID: 595794485}
+  - component: {fileID: 595794488}
   m_Layer: 0
   m_Name: City1
   m_TagString: Untagged
@@ -1464,6 +1517,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &595794488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595794483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &609178786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,6 +1620,7 @@ GameObject:
   - component: {fileID: 610823252}
   - component: {fileID: 610823251}
   - component: {fileID: 610823250}
+  - component: {fileID: 610823253}
   m_Layer: 0
   m_Name: City1
   m_TagString: Untagged
@@ -1665,6 +1731,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &610823253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610823248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &862995199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2214,7 @@ GameObject:
   - component: {fileID: 1355836662}
   - component: {fileID: 1355836661}
   - component: {fileID: 1355836660}
+  - component: {fileID: 1355836663}
   m_Layer: 0
   m_Name: City1
   m_TagString: Untagged
@@ -2246,6 +2325,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1355836663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355836658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &1373111494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2575,36 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
+  worldTintGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0.7924528, g: 0.6683517, b: 0.48220006, a: 0}
+    key3: {r: 0.61928016, g: 0.54369885, b: 0.7735849, a: 0}
+    key4: {r: 0.61960787, g: 0.61960787, b: 0.61960787, a: 0}
+    key5: {r: 0.4901961, g: 0.4901961, b: 0.4901961, a: 0}
+    key6: {r: 1, g: 1, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 19546
+    ctime2: 25486
+    ctime3: 30851
+    ctime4: 41582
+    ctime5: 62086
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
   cycleDuration: 120
 --- !u!4 &1635383703
 Transform:
@@ -2513,6 +2634,7 @@ GameObject:
   - component: {fileID: 1710740536}
   - component: {fileID: 1710740538}
   - component: {fileID: 1710740537}
+  - component: {fileID: 1710740539}
   m_Layer: 3
   m_Name: Bird
   m_TagString: Untagged
@@ -2692,6 +2814,18 @@ PolygonCollider2D:
       - {x: 1.2533891, y: 0.5529728}
       - {x: 0.9656261, y: 0.8517212}
   m_UseDelaunayMesh: 1
+--- !u!114 &1710740539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710740533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &1759627922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,6 +2871,7 @@ GameObject:
   - component: {fileID: 1864678107}
   - component: {fileID: 1864678106}
   - component: {fileID: 1864678105}
+  - component: {fileID: 1864678108}
   m_Layer: 0
   m_Name: City2
   m_TagString: Untagged
@@ -2847,6 +2982,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1864678108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864678103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &1999239250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,6 +3246,7 @@ GameObject:
   - component: {fileID: 2088663018}
   - component: {fileID: 2088663017}
   - component: {fileID: 2088663016}
+  - component: {fileID: 2088663019}
   m_Layer: 0
   m_Name: City2
   m_TagString: Untagged
@@ -3209,6 +3357,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2088663019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088663014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &2110671295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3381,7 @@ GameObject:
   - component: {fileID: 2110671299}
   - component: {fileID: 2110671298}
   - component: {fileID: 2110671297}
+  - component: {fileID: 2110671300}
   m_Layer: 0
   m_Name: City2
   m_TagString: Untagged
@@ -3331,6 +3492,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2110671300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110671295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

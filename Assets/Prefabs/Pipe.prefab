@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f414e17b8b1ee447988bd61a184000e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 5
 --- !u!114 &1844156220086026475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +163,7 @@ GameObject:
   - component: {fileID: 4171418045859917411}
   - component: {fileID: 5750162450157580491}
   - component: {fileID: 5007634590029684378}
+  - component: {fileID: 4387775889253126746}
   m_Layer: 0
   m_Name: Bottom Pipe
   m_TagString: Untagged
@@ -291,6 +291,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 3.827445}
   m_EdgeRadius: 0
+--- !u!114 &4387775889253126746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090788890604767458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint
 --- !u!1 &7397925683833094086
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +314,7 @@ GameObject:
   - component: {fileID: 4907853555575522533}
   - component: {fileID: 9124170125836546681}
   - component: {fileID: 1267829692631159321}
+  - component: {fileID: 8487242524072572758}
   m_Layer: 0
   m_Name: Top Pipe
   m_TagString: Untagged
@@ -429,3 +442,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 3.847515}
   m_EdgeRadius: 0
+--- !u!114 &8487242524072572758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397925683833094086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c391a53c49b846e38b21164f8da89a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.DayNightTint

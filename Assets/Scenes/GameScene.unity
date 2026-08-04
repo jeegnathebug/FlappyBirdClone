@@ -473,8 +473,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d123a9280e130e409d8dc9b21676282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  pipe: {fileID: 1515558196945867280, guid: 001286646c09feb4f8683273f4a5793c, type: 3}
+  obstacle: {fileID: 1515558196945867280, guid: 001286646c09feb4f8683273f4a5793c, type: 3}
   spawnRate: 2.5
+  topOffset: 5
+  bottomOffset: 1
+  spawnImmediately: 1
 --- !u!4 &383782943
 Transform:
   m_ObjectHideFlags: 0
@@ -685,7 +688,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.5, y: 3.5}
-    newSize: {x: 40, y: 3.5}
+    newSize: {x: 40.2, y: 3.5}
     adaptiveTilingThreshold: 0.152
     drawMode: 2
     adaptiveTiling: 0
@@ -746,7 +749,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 40, y: 3.5}
+  m_Size: {x: 40.2, y: 3.5}
   m_AdaptiveModeThreshold: 0.152
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1353,7 +1356,7 @@ Transform:
   m_GameObject: {fileID: 1319955493}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10.02502, z: 0}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1626,7 +1629,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.5, y: 3.5}
-    newSize: {x: 40, y: 3.5}
+    newSize: {x: 40.2, y: 3.5}
     adaptiveTilingThreshold: 0.152
     drawMode: 2
     adaptiveTiling: 0
@@ -1687,7 +1690,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 40, y: 3.5}
+  m_Size: {x: 40.2, y: 3.5}
   m_AdaptiveModeThreshold: 0.152
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

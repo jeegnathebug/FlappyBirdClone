@@ -3,12 +3,13 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PipeSpawner : GameStateSubscriber
+    public class ObstacleSpawner : GameStateSubscriber
     {
-        [SerializeField] private GameObject pipe;
-        [SerializeField] private float spawnRate = 2.5f;
-        private const float TopOffset = 5;
-        private const float BottomOffset = 1;
+        [SerializeField] private GameObject obstacle;
+        [SerializeField] private float spawnRate;
+        [SerializeField] private float topOffset;
+        [SerializeField] private float bottomOffset;
+        [SerializeField] private bool spawnImmediately;
         private float _timer;
         private bool _isRunning = false;
 
@@ -16,7 +17,10 @@ namespace Gameplay
 
         private void Start()
         {
-            _timer = spawnRate; // Start by spawning a pipe immediately
+            if (spawnImmediately)
+            {
+                _timer = spawnRate;
+            }
         }
 
         private void Update()
@@ -32,19 +36,19 @@ namespace Gameplay
             }
             else
             {
-                SpawnPipe();
+                SpawnObstacle();
                 _timer = 0;
             }
         }
 
         #endregion
 
-        private void SpawnPipe()
+        private void SpawnObstacle()
         {
-            var highestPoint = transform.position.y + TopOffset;
-            var lowestPoint = transform.position.y - BottomOffset;
+            var highestPoint = transform.position.y + topOffset;
+            var lowestPoint = transform.position.y - bottomOffset;
 
-            Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
+            Instantiate(obstacle, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
                 transform.rotation, transform);
         }
 

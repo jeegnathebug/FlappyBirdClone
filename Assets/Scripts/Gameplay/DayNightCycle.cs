@@ -13,7 +13,7 @@ namespace Gameplay
         [SerializeField] private Gradient worldTintGradient;
         [SerializeField] private float cycleDuration = 120f;
 
-        public static event Action<Color> TintChanged;
+        public static Color CurrentTint { get; private set; }
 
         private float _time;
 
@@ -24,7 +24,7 @@ namespace Gameplay
             var t = _time % cycleDuration / cycleDuration;
 
             mainCamera.backgroundColor = skyGradient.Evaluate(t);
-            TintChanged?.Invoke(worldTintGradient.Evaluate(t));
+            CurrentTint = worldTintGradient.Evaluate(t);
         }
     }
 }

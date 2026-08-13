@@ -6,6 +6,7 @@ namespace Gameplay
     public class DayNightTint : MonoBehaviour
     {
         private SpriteRenderer _spriteRenderer;
+        private bool _isRunning = false;
 
         private void Awake()
         {
@@ -14,17 +15,22 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            DayNightCycle.TintChanged += OnTintChanged;
+            _isRunning = true;
         }
 
         private void OnDisable()
         {
-            DayNightCycle.TintChanged -= OnTintChanged;
+            _isRunning = false;
         }
 
-        private void OnTintChanged(Color tint)
+        private void Update()
         {
-            _spriteRenderer.color = tint;
+            if (!_isRunning)
+            {
+                return;
+            }
+
+            _spriteRenderer.color = DayNightCycle.CurrentTint;
         }
     }
 }

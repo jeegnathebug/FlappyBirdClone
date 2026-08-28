@@ -18,7 +18,7 @@ namespace Gameplay
 
         private void Awake()
         {
-            _jumpAction = InputSystem.actions.FindAction("Jump");
+            _jumpAction = InputSystem.actions.FindAction(nameof(Control.Jump));
             _rigidBody2D = GetComponent<Rigidbody2D>();
         }
 

@@ -1,4 +1,5 @@
 using System;
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +17,7 @@ namespace UI
 
         private void Start()
         {
-            _jumpAction = InputSystem.actions.FindAction("Jump");
+            _jumpAction = InputSystem.actions.FindAction(nameof(Control.Jump));
         }
 
         private void Update()

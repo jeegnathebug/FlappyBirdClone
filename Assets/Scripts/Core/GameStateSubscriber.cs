@@ -18,27 +18,21 @@ namespace Core
         {
             switch (state)
             {
-                case GameState.Started:
+                case GameState.Playing:
                     Resume();
-                    break;
-
-                case GameState.Paused:
-                    Pause();
                     break;
 
                 case GameState.Stopped:
                     Stop();
                     break;
 
-                case GameState.Restarted:
+                case GameState.Reset:
                     Reset();
                     break;
             }
         }
 
         protected virtual void Resume() { }
-
-        protected virtual void Pause() { }
 
         protected virtual void Stop() { }
 

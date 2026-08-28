@@ -23,7 +23,7 @@ namespace Core
             MainMenu.StartButtonPressed += StartGame;
             pauseMenu.ResumeButtonPressed += ResumeGame;
             pauseMenu.ReturnToMenuButtonPressed += ReloadGame;
-            gameOverMenu.RestartButtonPressed += RestartGame;
+            gameOverMenu.RestartButtonPressed += StartGame;
             gameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
         }
 
@@ -32,7 +32,7 @@ namespace Core
             MainMenu.StartButtonPressed -= StartGame;
             pauseMenu.ResumeButtonPressed -= ResumeGame;
             pauseMenu.ReturnToMenuButtonPressed -= ReloadGame;
-            gameOverMenu.RestartButtonPressed -= RestartGame;
+            gameOverMenu.RestartButtonPressed -= StartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
         }
 
@@ -49,21 +49,23 @@ namespace Core
             StateChanged?.Invoke(state);
         }
 
-        private void StartGame()
+        public void StartGame()
         {
             gameOverMenu.Hide();
-            SetState(GameState.Started);
+            SetState(GameState.Reset);
+            SetState(GameState.Playing);
         }
 
         public void ResumeGame()
         {
             pauseMenu.Hide();
-            SetState(GameState.Started);
+            SetState(GameState.Playing);
         }
 
         public void PauseGame()
         {
             pauseMenu.Show();
+            SetState(GameState.Stopped);
             SetState(GameState.Paused);
         }
 
@@ -74,13 +76,6 @@ namespace Core
         {
             gameOverMenu.Show();
             SetState(GameState.Stopped);
-        }
-
-        public void RestartGame()
-        {
-            gameOverMenu.Hide();
-            SetState(GameState.Restarted);
-            SetState(GameState.Started);
         }
 
         private void ReloadGame()

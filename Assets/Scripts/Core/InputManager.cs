@@ -36,7 +36,7 @@ namespace Core
                 case GameState.Paused:
                     gameManager.ResumeGame();
                     break;
-                case GameState.Started:
+                case GameState.Playing:
                     gameManager.PauseGame();
                     break;
             }
@@ -47,7 +47,7 @@ namespace Core
             switch (GameManager.State)
             {
                 case GameState.Stopped:
-                    gameManager.RestartGame();
+                    gameManager.StartGame();
                     break;
             }
         }

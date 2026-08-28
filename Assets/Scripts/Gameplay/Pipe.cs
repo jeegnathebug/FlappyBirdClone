@@ -14,7 +14,7 @@ namespace Gameplay
 
         private void Start()
         {
-            _isRunning = GameManager.State == GameState.Started;
+            _isRunning = GameManager.State == GameState.Playing;
         }
 
         private void Update()
@@ -36,11 +36,6 @@ namespace Gameplay
         protected override void Resume()
         {
             _isRunning = true;
-        }
-
-        protected override void Pause()
-        {
-            _isRunning = false;
         }
 
         protected override void Stop()

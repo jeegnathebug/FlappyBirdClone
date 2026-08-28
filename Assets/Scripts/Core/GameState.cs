@@ -2,9 +2,9 @@ namespace Core
 {
     public enum GameState
     {
-        Started,
+        Playing,
         Stopped,
         Paused,
-        Restarted,
+        Reset,
     }
 }

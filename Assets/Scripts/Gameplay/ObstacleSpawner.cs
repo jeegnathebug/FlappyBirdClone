@@ -57,11 +57,6 @@ namespace Gameplay
             _isRunning = true;
         }
 
-        protected override void Pause()
-        {
-            _isRunning = false;
-        }
-
         protected override void Stop()
         {
             _isRunning = false;

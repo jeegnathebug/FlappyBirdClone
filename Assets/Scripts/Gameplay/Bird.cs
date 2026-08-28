@@ -57,6 +57,7 @@ namespace Gameplay
         {
             _isRunning = false;
             _rigidBody2D.gravityScale = 0;
+            _rigidBody2D.linearVelocity = Vector2.zero;
         }
 
         protected override void Stop()

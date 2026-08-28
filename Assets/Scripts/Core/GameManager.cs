@@ -11,6 +11,7 @@ namespace Core
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private GameOverMenu gameOverMenu;
+        [SerializeField] private PauseMenu pauseMenu;
 
         public static event Action<GameState> StateChanged;
         public static GameState State { get; private set; } = GameState.Stopped;
@@ -20,6 +21,8 @@ namespace Core
         private void OnEnable()
         {
             MainMenu.StartButtonPressed += StartGame;
+            pauseMenu.ResumeButtonPressed += ResumeGame;
+            pauseMenu.ReturnToMenuButtonPressed += ReloadGame;
             gameOverMenu.RestartButtonPressed += RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed += ReloadGame;
         }
@@ -27,6 +30,8 @@ namespace Core
         private void OnDisable()
         {
             MainMenu.StartButtonPressed -= StartGame;
+            pauseMenu.ResumeButtonPressed -= ResumeGame;
+            pauseMenu.ReturnToMenuButtonPressed -= ReloadGame;
             gameOverMenu.RestartButtonPressed -= RestartGame;
             gameOverMenu.ReturnToMenuButtonPressed -= ReloadGame;
         }
@@ -50,6 +55,18 @@ namespace Core
             SetState(GameState.Started);
         }
 
+        public void ResumeGame()
+        {
+            pauseMenu.Hide();
+            SetState(GameState.Started);
+        }
+
+        public void PauseGame()
+        {
+            pauseMenu.Show();
+            SetState(GameState.Paused);
+        }
+
         /// <summary>
         /// Used in the Bird when it collides and dies
         /// </summary>
@@ -59,7 +76,7 @@ namespace Core
             SetState(GameState.Stopped);
         }
 
-        private void RestartGame()
+        public void RestartGame()
         {
             gameOverMenu.Hide();
             SetState(GameState.Restarted);

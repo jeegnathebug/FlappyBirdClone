@@ -4,7 +4,8 @@ Game created by following this [Youtube](https://www.youtube.com/watch?v=XtQMytO
 
 ## Controls
 
-Press <kbd>Space</kbd> to flap
+- <kbd>Space</kbd> to flap
+- <kbd>Esc</kbd> to pause
 
 ## Built With
 - Unity

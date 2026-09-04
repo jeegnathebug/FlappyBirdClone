@@ -33,9 +33,17 @@ namespace Gameplay
             {
                 _highscore = _score;
                 highscoreText.text = _highscore.ToString();
-                PlayerPrefs.SetInt(nameof(PlayerPrefValues.HighScore), _highscore);
             }
             scoreText.text = _score.ToString();
+        }
+
+        protected override void Stop()
+        {
+            var originalHighScore = PlayerPrefs.GetInt(nameof(PlayerPrefValues.HighScore), 0);
+            if (_score > originalHighScore)
+            {
+                PlayerPrefs.SetInt(nameof(PlayerPrefValues.HighScore), _highscore);
+            }
         }
 
         protected override void Reset()

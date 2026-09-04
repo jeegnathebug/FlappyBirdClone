@@ -19,7 +19,7 @@ namespace Gameplay
         #endregion
 
         /// <summary>
-        /// Used in the PipeMiddle script to manage score
+        /// Used in the ObstacleSpawner script to wire up events between a PipeMiddle instance and the ScoreManager
         /// </summary>
         public void AddScore(int score = 1)
         {

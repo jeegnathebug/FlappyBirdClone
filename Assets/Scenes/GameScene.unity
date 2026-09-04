@@ -960,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d123a9280e130e409d8dc9b21676282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  scoreManager: {fileID: 1506980901}
   obstacle: {fileID: 1515558196945867280, guid: 001286646c09feb4f8683273f4a5793c, type: 3}
   spawnRate: 2.5
   topOffset: 5

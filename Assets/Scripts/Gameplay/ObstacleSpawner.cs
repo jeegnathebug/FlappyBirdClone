@@ -5,11 +5,13 @@ namespace Gameplay
 {
     public class ObstacleSpawner : GameStateSubscriber
     {
+        [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private GameObject obstacle;
         [SerializeField] private float spawnRate;
         [SerializeField] private float topOffset;
         [SerializeField] private float bottomOffset;
         [SerializeField] private bool spawnImmediately;
+
         private float _timer;
         private bool _isRunning = false;
 
@@ -48,8 +50,14 @@ namespace Gameplay
             var highestPoint = transform.position.y + topOffset;
             var lowestPoint = transform.position.y - bottomOffset;
 
-            Instantiate(obstacle, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
-                transform.rotation, transform);
+            var spawned = Instantiate(
+                obstacle,
+                new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0),
+                transform.rotation,
+                transform);
+
+            var pipeMiddle = spawned.GetComponentInChildren<PipeMiddle>();
+            pipeMiddle.OnPointScored += scoreManager.AddScore;
         }
 
         protected override void Resume()

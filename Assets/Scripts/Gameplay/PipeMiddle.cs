@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Gameplay
@@ -7,16 +8,11 @@ namespace Gameplay
     /// </summary>
     public class PipeMiddle : MonoBehaviour
     {
-        private ScoreManager _scoreManager;
-
-        private void Start()
-        {
-            _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
-        }
+        public event Action<int> OnPointScored;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            _scoreManager.AddScore();
+            OnPointScored?.Invoke(1);
         }
     }
 }

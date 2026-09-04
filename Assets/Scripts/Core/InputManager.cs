@@ -46,6 +46,7 @@ namespace Core
         {
             switch (GameManager.State)
             {
+                // todo fixme the game is "Stopped" when in the MainMenu. this means pressing jump while in the main menu causes the game to start in the bg
                 case GameState.Stopped:
                     gameManager.StartGame();
                     break;

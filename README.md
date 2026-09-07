@@ -23,4 +23,4 @@ Learn Unity basics and 2D game mechanics.
 
 ## Demo
 
-https://raw.githubusercontent.com/jeegnathebug/FlappyBirdClone/main/docs/demo.mp4
+https://github.com/user-attachments/assets/b2fcf9e9-0258-4b3a-9229-6e3863508d3b

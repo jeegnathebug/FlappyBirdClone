@@ -14,7 +14,7 @@ namespace Core
         [SerializeField] private PauseMenu pauseMenu;
 
         public static event Action<GameState> StateChanged;
-        public static GameState State { get; private set; } = GameState.Stopped;
+        public static GameState State { get; private set; } = GameState.Menu;
 
         #region Unity Lifecycle
 
@@ -51,22 +51,22 @@ namespace Core
 
         public void StartGame()
         {
-            gameOverMenu.Hide();
             SetState(GameState.Reset);
             SetState(GameState.Playing);
+            gameOverMenu.Hide();
         }
 
         public void ResumeGame()
         {
-            pauseMenu.Hide();
             SetState(GameState.Playing);
+            pauseMenu.Hide();
         }
 
         public void PauseGame()
         {
-            pauseMenu.Show();
             SetState(GameState.Stopped);
             SetState(GameState.Paused);
+            pauseMenu.Show();
         }
 
         /// <summary>
@@ -74,12 +74,13 @@ namespace Core
         /// </summary>
         public void EndGame()
         {
-            gameOverMenu.Show();
             SetState(GameState.Stopped);
+            gameOverMenu.Show();
         }
 
         private void ReloadGame()
-        {
+        {;
+            SetState(GameState.Menu);
             SceneLoader.Load(GameScene.GameScene);
         }
     }

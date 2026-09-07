@@ -724,10 +724,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5616963f-23d9-431d-9340-639cb4870983
+  cloudProjectId: 5021a18b-92bf-468d-8bce-1f2607653af5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project 2026-03-04_19-49-53
+  projectName: Flappy Bird Clone
   organizationId: jeegnathebug
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

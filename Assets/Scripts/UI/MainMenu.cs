@@ -1,6 +1,8 @@
 using Core;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Utility;
 
 namespace UI
@@ -10,6 +12,13 @@ namespace UI
         public static event Action StartButtonPressed;
         [SerializeField] private GameObject creditPanel;
         [SerializeField] private GameObject menuPanel;
+        [SerializeField] private Button startButton;
+        [SerializeField] private Button creditsReturnButton;
+
+        public void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(startButton.gameObject);
+        }
 
         /// <summary>
         /// Called by the Menu's Start button.
@@ -24,12 +33,14 @@ namespace UI
         {
             creditPanel.SetActive(true);
             menuPanel.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(creditsReturnButton.gameObject);
         }
 
         public void OnCreditsReturnButtonPressed()
         {
             creditPanel.SetActive(false);
             menuPanel.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(startButton.gameObject);
         }
 
         /// <summary>

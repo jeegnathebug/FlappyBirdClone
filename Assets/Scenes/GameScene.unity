@@ -2222,6 +2222,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.GameManager
   gameOverMenu: {fileID: 18750405}
   pauseMenu: {fileID: 703014030}
+  restartButton: {fileID: 1268572983}
+  resumeButton: {fileID: 1063207377}
+--- !u!114 &1063207377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3380654502272882749, guid: 053be4ac0514aed46b5a3f338aeaa375, type: 3}
+  m_PrefabInstance: {fileID: 84645595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1082862611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2346,17 @@ Transform:
   - {fileID: 451452795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268572983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3380654502272882749, guid: 053be4ac0514aed46b5a3f338aeaa375, type: 3}
+  m_PrefabInstance: {fileID: 274611848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1319955493
 GameObject:
   m_ObjectHideFlags: 0

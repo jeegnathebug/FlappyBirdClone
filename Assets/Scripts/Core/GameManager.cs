@@ -1,6 +1,8 @@
 using System;
 using UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Utility;
 
 namespace Core
@@ -12,6 +14,8 @@ namespace Core
     {
         [SerializeField] private GameOverMenu gameOverMenu;
         [SerializeField] private PauseMenu pauseMenu;
+        [SerializeField] private Button restartButton;
+        [SerializeField] private Button resumeButton;
 
         public static event Action<GameState> StateChanged;
         public static GameState State { get; private set; } = GameState.Menu;
@@ -67,6 +71,7 @@ namespace Core
             SetState(GameState.Stopped);
             SetState(GameState.Paused);
             pauseMenu.Show();
+            EventSystem.current.SetSelectedGameObject(resumeButton.gameObject);
         }
 
         /// <summary>
@@ -76,6 +81,7 @@ namespace Core
         {
             SetState(GameState.Stopped);
             gameOverMenu.Show();
+            EventSystem.current.SetSelectedGameObject(restartButton.gameObject);
         }
 
         private void ReloadGame()

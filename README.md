@@ -20,3 +20,7 @@ Game created by following this [Youtube](https://www.youtube.com/watch?v=XtQMytO
 
 ## Goal
 Learn Unity basics and 2D game mechanics.
+
+## Demo
+
+![Demo](docs/demo.mkv)

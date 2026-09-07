@@ -15,6 +15,7 @@ namespace Gameplay
         private Rigidbody2D _rigidBody2D;
         private readonly Vector3 _startPosition = Vector3.zero;
         private bool _isRunning = false;
+        private AudioSource _audioSource;
 
         #region Unity Lifecycle
 
@@ -22,6 +23,7 @@ namespace Gameplay
         {
             _jumpAction = InputSystem.actions.FindAction(nameof(Control.Jump));
             _rigidBody2D = GetComponent<Rigidbody2D>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -39,13 +41,13 @@ namespace Gameplay
             if (_jumpAction.WasPressedThisFrame())
             {
                 _rigidBody2D.linearVelocity = Vector2.up * flapStrength;
-                AudioSource.PlayClipAtPoint(flapSound, _rigidBody2D.position);
+                _audioSource.PlayOneShot(flapSound);
             }
         }
 
         private void OnCollisionEnter2D()
         {
-            AudioSource.PlayClipAtPoint(deathSound, _rigidBody2D.position);
+            _audioSource.PlayOneShot(deathSound);
             gameManager.EndGame();
         }
 

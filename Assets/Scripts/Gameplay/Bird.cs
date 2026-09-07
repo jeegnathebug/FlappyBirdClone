@@ -8,6 +8,7 @@ namespace Gameplay
     {
         [SerializeField] private float flapStrength;
         [SerializeField] private GameManager gameManager;
+        [SerializeField] private AudioClip flapSound;
 
         private InputAction _jumpAction;
         private Rigidbody2D _rigidBody2D;
@@ -37,6 +38,7 @@ namespace Gameplay
             if (_jumpAction.WasPressedThisFrame())
             {
                 _rigidBody2D.linearVelocity = Vector2.up * flapStrength;
+                AudioSource.PlayClipAtPoint(flapSound, _rigidBody2D.position);
             }
         }
 

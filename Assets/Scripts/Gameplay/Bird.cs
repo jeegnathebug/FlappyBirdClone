@@ -9,6 +9,7 @@ namespace Gameplay
         [SerializeField] private float flapStrength;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private AudioClip flapSound;
+        [SerializeField] private AudioClip deathSound;
 
         private InputAction _jumpAction;
         private Rigidbody2D _rigidBody2D;
@@ -44,6 +45,7 @@ namespace Gameplay
 
         private void OnCollisionEnter2D()
         {
+            AudioSource.PlayClipAtPoint(deathSound, _rigidBody2D.position);
             gameManager.EndGame();
         }
 

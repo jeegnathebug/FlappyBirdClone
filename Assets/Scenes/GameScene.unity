@@ -2927,6 +2927,7 @@ MonoBehaviour:
   flapStrength: 20
   gameManager: {fileID: 862995201}
   flapSound: {fileID: 8300000, guid: b6fe20a56a52845499901e60e5222c43, type: 3}
+  deathSound: {fileID: 8300000, guid: c8d0f5d8c277f404e96ced5568e14b86, type: 3}
 --- !u!60 &1710740538
 PolygonCollider2D:
   m_ObjectHideFlags: 0
